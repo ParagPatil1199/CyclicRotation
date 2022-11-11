@@ -1,0 +1,48 @@
+package dataStructureModule;
+
+
+import java.util.ArrayList;
+import java.util.Arrays;
+
+public class CyclicRotation {
+    public static void main(String[] args) {
+        int[] SA = {1,2,3,4};
+        int k = 3;
+        System.out.println("Original Array: "+Arrays.toString(SA));
+        int[] rotatedArray = Dash.solution(SA,k);
+        System.out.println("Rotated Array: "+Arrays.toString(rotatedArray));
+
+    }
+    class Dash{
+
+        public static int[] solution(int[] A, int K) {
+            // write your code in Java SE 8
+
+            int [] B =new int [A.length];
+
+            for(int l=0;K>l;K--){
+                int j=0;
+                for(int i=0;i<A.length;i++){
+
+                    if(i==0){
+
+                        B[j]=A[A.length-1];
+
+                        j++;
+                    }
+                    else{
+
+                        B[j]=A[i-1];
+
+                        j++;
+                    }
+                }
+                    A=B.clone();
+
+            }
+            return B;
+
+        }
+    }
+}
+
